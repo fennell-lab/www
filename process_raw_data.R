@@ -9,12 +9,17 @@ generate_labels <- function(inputFile, overwrite = FALSE){
   COLS <- 6
   LABEL_PATH <- ""
   for (i in 1:nrow(data)) {
-    if (data[i, 1] == "" || data[i, 2] == "")
+    if (data[i, 1] == "" || data[i, 2] == "") # Verify that entry is not empty
       next
     #IDs <- paste0(IDs, "[", data[i, 2], "](", clean(data[i, 2]), ") ")
     IDs <- rbind(IDs, paste0("[", data[i, 2], "](", clean(data[i, 2]), ")"))
     #IDs <- rbind(IDs, "")
     new_Rmd_name <- paste0("content/label/", clean(data[i, 1]), "-", clean(data[i, 2]), ".Rmd")
+    if (file.exists(new_Rmd_name) && overwrite ) { # Store old files
+      if(!dir.exists("content/.old/label/"))
+        dir.create("content/.old/label/", recursive = TRUE)
+      file.rename(new_Rmd_name, paste0("content/.old/label/", Sys.Date(), "_", clean(data[i, 1]), "-", clean(data[i, 2]), ".Rmd"))
+    }
     if (!file.exists(new_Rmd_name) || overwrite) {
       new_Rmd <- file(new_Rmd_name)
       writeLines(
@@ -33,7 +38,9 @@ generate_labels <- function(inputFile, overwrite = FALSE){
           "---",
           "",
           paste0("# **House**: ", data[i, 1]),
-          paste0("# **Plant ID**: ", data[i, 2])
+          paste0("# **Plant ID**: ", data[i, 2]),
+          paste0("# **Updates**: "),
+          paste0(Sys.Date(),": Nothing new.")
         ), new_Rmd)
       close(new_Rmd)
       print(paste0("FILE: ", new_Rmd_name, " created."))
@@ -57,6 +64,7 @@ generate_labels <- function(inputFile, overwrite = FALSE){
       "title: GH118",
       "aliases:",
       paste0("  - ", LABEL_PATH, tolower(data[1, 1])),
+      paste0("  - ", LABEL_PATH, clean(data[1, 1])),
       paste0("  - ", LABEL_PATH, clean(data[1, 1], to = "")),
       "---",
       "```{r, echo = FALSE}",
