@@ -7,8 +7,8 @@ categories:
 tags:
   - F2
 aliases:
-  - GH_118-F2_004
   - gh_118-f2_004
+  - gh118-f2004
 ---
 
 # **House**: GH_118
