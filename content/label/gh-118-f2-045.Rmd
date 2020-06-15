@@ -7,8 +7,8 @@ categories:
 tags:
   - F2
 aliases:
-  - label/gh-118-f2-045
-  - label/gh118-f2045
+  - gh-118-f2-045
+  - gh118-f2045
 ---
 
 # **House**: GH_118
