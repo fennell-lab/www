@@ -1,0 +1,15 @@
+---
+title: GH_118 F2_113
+author: Roberto Villegas-Diaz
+slug: 'gh-118/f2-113'
+categories:
+  - GH118
+tags:
+  - F2
+aliases:
+  - label/gh-118-f2-113
+  - label/gh118-f2113
+---
+
+# **House**: GH_118
+# **Plant ID**: F2_113
