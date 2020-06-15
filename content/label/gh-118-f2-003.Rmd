@@ -1,0 +1,30 @@
+---
+title: GH_118 F2_003
+author: Roberto Villegas-Diaz
+slug: 'gh-118/f2-003'
+categories:
+  - GH118
+tags:
+  - F2
+aliases:
+  - f2_003
+  - ../gh_118-f2_003
+---
+
+# **House**: GH_118
+# **Plant ID**: F2_003
+
+```{r, echo = FALSE}
+library(leaflet)
+m <- leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng=-96.784309, lat=44.320602, popup="Greenhouse") %>%
+  setView(-96.784309, 44.320602, zoom = 15)
+  # addWMSTiles(
+  #   "http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi",
+  #   layers = "nexrad-n0r-900913",
+  #   options = WMSTileOptions(format = "image/png", transparent = TRUE),
+  #   attribution = "Weather data © 2012 IEM Nexrad"
+  # )
+m  # Print the map
+```
