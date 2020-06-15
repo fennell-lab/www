@@ -6,6 +6,8 @@ clean <- function(str, from = "_", to = "-", FUN = tolower) {
 generate_labels <- function(inputFile, overwrite = FALSE){
   data <- read.csv(inputFile)
   for (i in 1:nrow(data)) {
+    if (data[i, 1] == "" || data[i, 2] == "")
+      next
     new_Rmd_name <- paste0("content/label/", clean(data[i, 1]), "-", clean(data[i, 2]), ".Rmd")
     if (!file.exists(new_Rmd_name) || overwrite) {
       new_Rmd <- file(new_Rmd_name)
