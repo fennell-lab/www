@@ -5,6 +5,7 @@ tags:
 title: GH118
 aliases:
   - gh_118
+  - gh-118
   - gh118
 ---
 ```{r, echo = FALSE}
