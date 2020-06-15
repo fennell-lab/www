@@ -9,4 +9,4 @@ tags:
 title: Greenhouses
 ---
 
-# [GH_118](GH_118)
+# [GH_118](/GH_118)
