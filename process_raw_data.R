@@ -27,6 +27,7 @@ generate_labels <- function(inputFile, overwrite = FALSE){
           "tags:",
           paste0("  - ", clean(data[i, 2], "_\\d*", "", toupper)),
           "aliases:",
+          paste0("  - ", LABEL_PATH, tolower(data[i, 1]), "-", tolower(data[i, 2])),
           paste0("  - ", LABEL_PATH, clean(data[i, 1]), "-", clean(data[i, 2])),
           paste0("  - ", LABEL_PATH, clean(data[i, 1], to = ""), "-", clean(data[i, 2], to = "")),
           "---",
