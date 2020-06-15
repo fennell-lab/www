@@ -7,6 +7,7 @@ categories:
 tags:
   - F2
 aliases:
+  - gh_118-f2_045
   - gh-118-f2-045
   - gh118-f2045
 ---
