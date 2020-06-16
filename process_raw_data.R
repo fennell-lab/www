@@ -6,7 +6,7 @@ clean <- function(str, from = "_", to = "-", FUN = tolower) {
 generate_labels <- function(inputFile, overwrite = FALSE){
   data <- read.csv(inputFile)
   IDs <- NULL
-  COLS <- 6
+  COLS <- 4
   LABEL_PATH <- ""
   for (i in 1:nrow(data)) {
     if (data[i, 1] == "" || data[i, 2] == "") # Verify that entry is not empty
@@ -67,6 +67,13 @@ generate_labels <- function(inputFile, overwrite = FALSE){
       paste0("  - ", LABEL_PATH, clean(data[1, 1])),
       paste0("  - ", LABEL_PATH, clean(data[1, 1], to = "")),
       "---",
+      "",
+      "```{css, echo = FALSE}",
+      ".id_links td{",
+      "  padding-right: 20px !important;",
+      "}",
+      "```",
+      "",
       "```{r, echo = FALSE}",
       "knitr::kable(matrix(c(", paste0("'",IDs,"'", collapse = ", "), 
                            "), ncol = ", COLS, ", byrow = TRUE), 'html', booktabs = TRUE, table.attr='class=\"id_links\"')",
