@@ -6,7 +6,7 @@ clean <- function(str, from = "_", to = "-", FUN = tolower) {
 generate_labels <- function(inputFile, overwrite = FALSE){
   data <- read.csv(inputFile)
   IDs <- NULL
-  COLS <- 4
+  COLS <- 6
   LABEL_PATH <- ""
   for (i in 1:nrow(data)) {
     if (data[i, 1] == "" || data[i, 2] == "") # Verify that entry is not empty
@@ -71,6 +71,9 @@ generate_labels <- function(inputFile, overwrite = FALSE){
       "```{css, echo = FALSE}",
       ".id_links td{",
       "  padding-right: 20px !important;",
+      "}",
+      ".split-content {",
+      "  min-width: 600px !important;",
       "}",
       "```",
       "",
