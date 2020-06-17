@@ -138,8 +138,12 @@ create_house_index <- function(house_id,
     old_labels <- gsub("\'", "", old_labels)
     old_labels <- old_labels[old_labels != ""]
     
+    backup_dir <- paste0(location, ".old/", Sys.Date())
+    if(!dir.exists(backup_dir))
+      dir.create(backup_dir, recursive = TRUE)
+    
     # Rename old file
-    file.rename(new_house_Rmd_name, paste0(new_house_Rmd_name, "_", format(Sys.time(), "%Y-%m-%d_%H-%M-%S")))
+    file.rename(new_house_Rmd_name, paste0(backup_dir , "/", clean(house_id), ".", format))
   }
   
   # Combine new labels with old ones and keep unique only
