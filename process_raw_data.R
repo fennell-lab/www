@@ -122,9 +122,28 @@ create_house_index <- function(house_id,
   # Create new house index name
   new_house_Rmd_name <- paste0(location, clean(house_id), ".", format)
   
+  # Create empty old labels
+  old_labels <- ""
+  
   # Verify if the file exists, if so, then rename it by appending timestamp
-  if (file.exists(new_house_Rmd_name)) 
+  if (file.exists(new_house_Rmd_name)) {
+    # Read contents of old file
+    old_house_index <- file(new_house_Rmd_name)
+    old_house_index_contents <- readLines(old_house_index)
+    close(old_house_index)
+    
+    # Parse contents, lookup for specific line displaying the knitr::kable command
+    old_labels_idx <- grep("knitr::kable", old_house_index_contents) + 1
+    old_labels <- trimws(unlist(strsplit(old_house_index_contents[old_labels_idx], ",")))
+    old_labels <- gsub("\'", "", old_labels)
+    old_labels <- old_labels[old_labels != ""]
+    
+    # Rename old file
     file.rename(new_house_Rmd_name, paste0(new_house_Rmd_name, "_", format(Sys.time(), "%Y-%m-%d_%H-%M-%S")))
+  }
+  
+  # Combine new labels with old ones and keep unique only
+  labels <- unique(sort(c(labels, old_labels)))
   
   # Verify that the number of labels is multiple of the number of columns
   for(i in 1:(cols - length(labels) %% cols))
