@@ -1,0 +1,18 @@
+---
+title: GH_119 F2_685
+author: Roberto Villegas-Diaz
+slug: 'gh-119/f2-685'
+categories:
+  - GH119
+tags:
+  - F2
+aliases:
+  - gh_119-f2_685
+  - gh-119-f2-685
+  - gh119-f2685
+---
+
+# **House**: GH_119
+# **Plant ID**: F2_685
+# **Updates**: 
+ - 2020-06-17: Nothing new.

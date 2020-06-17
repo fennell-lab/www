@@ -1,0 +1,18 @@
+---
+title: GH_119 F2_604
+author: Roberto Villegas-Diaz
+slug: 'gh-119/f2-604'
+categories:
+  - GH119
+tags:
+  - F2
+aliases:
+  - gh_119-f2_604
+  - gh-119-f2-604
+  - gh119-f2604
+---
+
+# **House**: GH_119
+# **Plant ID**: F2_604
+# **Updates**: 
+ - 2020-06-17: Nothing new.

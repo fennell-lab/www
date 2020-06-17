@@ -1,0 +1,18 @@
+---
+title: GH_119 F2_623
+author: Roberto Villegas-Diaz
+slug: 'gh-119/f2-623'
+categories:
+  - GH119
+tags:
+  - F2
+aliases:
+  - gh_119-f2_623
+  - gh-119-f2-623
+  - gh119-f2623
+---
+
+# **House**: GH_119
+# **Plant ID**: F2_623
+# **Updates**: 
+ - 2020-06-17: Nothing new.

@@ -1,0 +1,18 @@
+---
+title: GH_121 F2_748
+author: Roberto Villegas-Diaz
+slug: 'gh-121/f2-748'
+categories:
+  - GH121
+tags:
+  - F2
+aliases:
+  - gh_121-f2_748
+  - gh-121-f2-748
+  - gh121-f2748
+---
+
+# **House**: GH_121
+# **Plant ID**: F2_748
+# **Updates**: 
+ - 2020-06-17: Nothing new.

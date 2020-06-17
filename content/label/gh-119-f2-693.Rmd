@@ -1,0 +1,18 @@
+---
+title: GH_119 F2_693
+author: Roberto Villegas-Diaz
+slug: 'gh-119/f2-693'
+categories:
+  - GH119
+tags:
+  - F2
+aliases:
+  - gh_119-f2_693
+  - gh-119-f2-693
+  - gh119-f2693
+---
+
+# **House**: GH_119
+# **Plant ID**: F2_693
+# **Updates**: 
+ - 2020-06-17: Nothing new.

@@ -1,0 +1,18 @@
+---
+title: GH_119 F2_610
+author: Roberto Villegas-Diaz
+slug: 'gh-119/f2-610'
+categories:
+  - GH119
+tags:
+  - F2
+aliases:
+  - gh_119-f2_610
+  - gh-119-f2-610
+  - gh119-f2610
+---
+
+# **House**: GH_119
+# **Plant ID**: F2_610
+# **Updates**: 
+ - 2020-06-17: Nothing new.

@@ -1,0 +1,18 @@
+---
+title: GH_118 F2_062
+author: Roberto Villegas-Diaz
+slug: 'gh-118/f2-062'
+categories:
+  - GH118
+tags:
+  - F2
+aliases:
+  - gh_118-f2_062
+  - gh-118-f2-062
+  - gh118-f2062
+---
+
+# **House**: GH_118
+# **Plant ID**: F2_062
+# **Updates**: 
+ - 2020-06-17: Nothing new.

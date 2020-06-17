@@ -1,0 +1,18 @@
+---
+title: GH_119 F2_697
+author: Roberto Villegas-Diaz
+slug: 'gh-119/f2-697'
+categories:
+  - GH119
+tags:
+  - F2
+aliases:
+  - gh_119-f2_697
+  - gh-119-f2-697
+  - gh119-f2697
+---
+
+# **House**: GH_119
+# **Plant ID**: F2_697
+# **Updates**: 
+ - 2020-06-17: Nothing new.
