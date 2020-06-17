@@ -191,3 +191,10 @@ create_house_index <- function(house_id,
   # Close file
   close(new_house_Rmd)
 }
+
+
+csv2dbf <- function(filename) {
+  data <- read.csv(filename)
+  colnames(data) <- c("HOUSE", "PLANTID")
+  foreign::write.dbf(data, gsub(".csv", ".dbf", filename))
+}
