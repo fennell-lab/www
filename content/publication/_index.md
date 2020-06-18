@@ -1,5 +1,6 @@
 ---
 aliases:
+- publications
 - papers
 - research
 author: Roberto Villegas-Diaz
