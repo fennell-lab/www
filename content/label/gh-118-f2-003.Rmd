@@ -61,6 +61,7 @@ button {
     <input type="file" name="gh-118-f2-003-photo" id="gh-118-f2-003-photo" placeholder="Upload photo" accept="image/*" />
   </p>
   <div data-netlify-recaptcha="true"> </div>
+  <br>
   <p class="buttonHolder">
     <button type="submit">Send</button>
   </p>
