@@ -49,11 +49,6 @@ button {
 ```
 # **Send update**:
 <form name="gh-118-f2-003" method="POST" data-netlify="true">
-  <!-- <div class="fields"> -->
-  <!--   <div class="field-half"> -->
-  <!--     <input type="text" name="name" id="name" placeholder="Name" /> -->
-  <!--   </div> -->
-  <!-- </div> -->
   <p>
     <input type="text" name="name" placeholder="Name" />
     <input type="email" name="email" placeholder="Email" />
