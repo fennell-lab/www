@@ -1,0 +1,22 @@
+---
+title: Roberto Villegas-Diaz
+slug: roberto-villegas-diaz
+categories:
+  - member
+tags: []
+aliases:
+  - /roberto
+  - /roberto-villegas-diaz
+  - member/roberto
+---
+```{css button-style, echo = FALSE}
+.badge:-webkit-any-link {
+  text-decoration: none !important;
+}
+```
+
+### [SDSU profile](https://www.sdstate.edu/directory/roberto-villegas-diaz)
+### Contact:
+[![Email](https://img.shields.io/badge/Email-0078D4.svg?style=for-the-badge&logo=microsoft-outlook&logoColor=white)](mailto:roberto.villegasdiaz@sdstate.edu){.badge}
+[![Github](https://img.shields.io/badge/Github-black.svg?style=for-the-badge&logo=github)](https://github.com/villegar/){.badge}
+[![ORCiD](https://img.shields.io/badge/ORCiD-A6CE39.svg?style=for-the-badge&logo=orcid&logoColor=white)](https://github.com/villegar/){.badge}

@@ -15,6 +15,6 @@ title: Members
 - [Zachary Helget](https://www.sdstate.edu/directory/zachary-helget)
 - [Michael Robben](https://www.sdstate.edu/directory/michael-robben)
 - [Prakriti Sharma](https://www.sdstate.edu/directory/prakriti-sharma)
-- [Roberto Villegas-Diaz](https://www.sdstate.edu/directory/roberto-villegas-diaz)
+- [Roberto Villegas-Diaz](roberto-villegas-diaz)
 - [Turhan Yilmaz](https://www.sdstate.edu/directory/turhan-yilmaz)
 - Local Foods Team
