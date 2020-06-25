@@ -26,7 +26,7 @@ copyright = "&copy;2020 Fennell Lab"
     # Image
     [params.visual.image]
       enable = true
-      file = "images/Vitis_Riparia.jpg"
+      file = "images/fennell-lab.jpeg"
       position = "center center"
 
     # Video
