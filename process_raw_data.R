@@ -269,8 +269,8 @@ generate_genotypes <- function(inputFile,
   }
   
   # Generate Greenhouse indices
-  for (i in unique(data$House)) {
-    idx <- data$House == i # Extract indices for current House ID
+  for (i in unique(data[,1])) {
+    idx <- data[,1] == i # Extract indices for current House ID
     if (length(idx) < 1) # Verify there are records linked to the House ID
       next
     labels <- data$Label[idx]
