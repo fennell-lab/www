@@ -27,7 +27,6 @@ clean <- function(str, from = "_", to = "-", FUN = tolower) {
 #' @param author index's author [default: "Roberto Villegas-Diaz"]
 #' @param label_path path to reference aliases [default: ""]
 #'
-#' @return
 #' @export
 #'
 #' @examples
@@ -46,7 +45,7 @@ generate_labels <- function(inputFile,
     data$Label[i] <- paste0("[", data[i, 2], "](", label_path, clean(data[i, 2]), ")")
     
     # Create new label filename
-    new_Rmd_name <- paste0("content/label/", clean(data[i, 1]), "-", clean(data[i, 2]), ".", format)
+    new_Rmd_name <- paste0(location, clean(data[i, 1]), "-", clean(data[i, 2]), ".", format)
     
     # Verify if file already exists, if so, then rename it by appending timestamp
     if (file.exists(new_Rmd_name) && overwrite ) { # Store old files
@@ -197,4 +196,83 @@ csv2dbf <- function(filename) {
   data <- read.csv(filename)
   colnames(data) <- c("HOUSE", "PLANTID")
   foreign::write.dbf(data, gsub(".csv", ".dbf", filename))
+}
+
+#' Generate metadata from raw data for genotypes
+#'
+#' @param inputFile filename with or without full path to raw data
+#' @param overwrite whether or not to overwrite existing files [default: FALSE]
+#' @param cols number of labels per row to display (columns) [default: 6]
+#' @param location location on disk to store the index [default: "content/genotype/"]
+#' @param format file format [default: "Rmd"]
+#' @param author index's author [default: "Roberto Villegas-Diaz"]
+#' @param label_path path to reference aliases [default: ""]
+#'
+#' @export
+#'
+#' @examples
+generate_genotypes <- function(inputFile, 
+                            overwrite = FALSE, 
+                            cols = 6, 
+                            location = "content/genotype/", 
+                            format = "Rmd", 
+                            author = "Roberto Villegas-Diaz", 
+                            label_path = ""){
+  data <- read.csv(inputFile) # Read raw data in CSV format, [House][PlantID]
+  data <- data[data[, 1] != "", ] # Drop any records with [House] missing
+  
+  for (i in 1:nrow(data)) {
+    # Create markdown link
+    data$Label[i] <- paste0("[", data[i, 2], "](", label_path, clean(data[i, 2]), ")")
+    
+    # Create new label filename
+    new_Rmd_name <- paste0(location, clean(data[i, 1]), "-", clean(data[i, 2]), ".", format)
+    
+    # Verify if file already exists, if so, then rename it by appending timestamp
+    if (file.exists(new_Rmd_name) && overwrite ) { # Store old files
+      backup_dir <- paste0(location, ".old/", Sys.Date())
+      if(!dir.exists(backup_dir))
+        dir.create(backup_dir, recursive = TRUE)
+      file.rename(new_Rmd_name, paste0(backup_dir , "/", clean(data[i, 1]), "-", clean(data[i, 2]), ".", format))
+    }
+    
+    # Verify if the label file exisis or if overwrite is TRUE
+    if (!file.exists(new_Rmd_name) || overwrite) {
+      new_Rmd <- file(new_Rmd_name) # Create reference to file
+      writeLines(
+        c("---",
+          paste0("title: ", data[i,1], " ", data[i, 2]),
+          paste0("author: ", author),
+          paste0("slug: '", clean(data[i, 1]), "/", clean(data[i, 2]),"'"),
+          "categories:",
+          paste0("  - ", clean(data[i, 1], to = "", FUN = toupper)),
+          "tags:",
+          paste0("  - ", clean(data[i, 2], "_\\d*", "", toupper)),
+          "aliases:",
+          paste0("  - ", label_path, tolower(data[i, 1]), "-", tolower(data[i, 2])),
+          paste0("  - ", label_path, clean(data[i, 1]), "-", clean(data[i, 2])),
+          paste0("  - ", label_path, clean(data[i, 1], to = ""), "-", clean(data[i, 2], to = "")),
+          "---",
+          "",
+          paste0("# **Parents**: ", data[i, 1]),
+          paste0("# **ID**: ", data[i, 2]),
+          paste0("# **Updates**: "),
+          paste0(" - ", Sys.Date(),": Nothing new.")
+        ), new_Rmd)
+      close(new_Rmd)
+      print(paste0("FILE: ", new_Rmd_name, " created."))
+    }
+    else
+      print(paste0("FILE: ", new_Rmd_name, " already exists."))
+  }
+  
+  # Generate Greenhouse indices
+  for (i in unique(data$House)) {
+    idx <- data$House == i # Extract indices for current House ID
+    if (length(idx) < 1) # Verify there are records linked to the House ID
+      next
+    labels <- data$Label[idx]
+    create_house_index(i, labels, cols, location, format, author, label_path)
+    print(paste0("Index for ", i, " created."))
+  }
 }
