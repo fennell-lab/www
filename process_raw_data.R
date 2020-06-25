@@ -218,8 +218,10 @@ generate_genotypes <- function(inputFile,
                             format = "Rmd", 
                             author = "Roberto Villegas-Diaz", 
                             label_path = ""){
-  data <- read.csv(inputFile) # Read raw data in CSV format, [House][PlantID]
-  data <- data[data[, 1] != "", ] # Drop any records with [House] missing
+  data <- read.csv(inputFile) # Read raw data in CSV format, [Parents][ID]
+  data <- data[data[, 1] != "", ] # Drop any records with [Parents] missing
+  data <- apply(data, 2, gsub, pattern = " ",  replacement = "") # Remove blanks
+  data <- data.frame(data)
   
   for (i in 1:nrow(data)) {
     # Create markdown link
@@ -254,7 +256,7 @@ generate_genotypes <- function(inputFile,
           paste0("  - ", label_path, clean(data[i, 1], to = ""), "-", clean(data[i, 2], to = "")),
           "---",
           "",
-          paste0("# **Parents**: ", data[i, 1]),
+          paste0("# **Parents**: ", gsub("x", " $\\\\times$ ", data[i, 1])),
           paste0("# **ID**: ", data[i, 2]),
           paste0("# **Updates**: "),
           paste0(" - ", Sys.Date(),": Nothing new.")
