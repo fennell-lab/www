@@ -85,55 +85,62 @@ generate_labels <- function(inputFile,
       print(paste0("FILE: ", new_Rmd_name, " already exists."))
   }
   
-  # Generate Greenhouse indices
+  # Generate Parents indices
   for (i in unique(data$House)) {
     idx <- data$House == i # Extract indices for current House ID
     if (length(idx) < 1) # Verify there are records linked to the House ID
       next
     labels <- data$Label[idx]
-    create_house_index(i, labels, cols,location, format, author, label_path)
+    create_index(i, labels, cols,location, format, author, label_path)
     print(paste0("Index for ", i, " created."))
   }
 }
 
 
-#' Create Greenhouse labels index
+#' Create index for elements with common parent
 #'
-#' @param house_id greenhouse identifier, GH_XXX
+#' @param parent_id parent identifier, GH_XXX
 #' @param labels labels in markdown URL format, [LABEL](label)
 #' @param cols number of labels per row to display (columns) [default: 6]
 #' @param location location on disk to store the index [default: "content/label/"]
 #' @param format file format [default: "Rmd"]
 #' @param author index's author [default: "Roberto Villegas-Diaz"]
 #' @param label_path path to reference aliases [default: ""]
+#' @param title title for the page [default: parent_id]
 #'
 #' @export 
 #'
 #' @examples
-#' create_house_index("GH_118", c("[F2_002](f2-002)", "[F2_003](f2-003)"), format = "txt")
-create_house_index <- function(house_id, 
-                               labels, 
-                               cols = 6, 
-                               location = "content/label/", 
-                               format = "Rmd", 
-                               author = "Roberto Villegas-Diaz",
-                               label_path = "") {
+#' create_index("GH_118", c("[F2_002](f2-002)", "[F2_003](f2-003)"), format = "txt")
+create_index <- function(parent_id, 
+                         labels, 
+                         cols = 6, 
+                         location = "content/label/", 
+                         format = "Rmd", 
+                         author = "Roberto Villegas-Diaz",
+                         label_path = "",
+                         title = NA) {
+  # Check if title is NA
+  if (is.na(title)) {
+    title <- clean(parent_id, to = "", FUN = toupper)
+  }
+  
   # Create new house index name
-  new_house_Rmd_name <- paste0(location, clean(house_id), ".", format)
+  new_index_Rmd_name <- paste0(location, clean(parent_id), ".", format)
   
   # Create empty old labels
   old_labels <- ""
   
   # Verify if the file exists, if so, then rename it by appending timestamp
-  if (file.exists(new_house_Rmd_name)) {
+  if (file.exists(new_index_Rmd_name)) {
     # Read contents of old file
-    old_house_index <- file(new_house_Rmd_name)
-    old_house_index_contents <- readLines(old_house_index)
-    close(old_house_index)
+    old_index_index <- file(new_index_Rmd_name)
+    old_index_index_contents <- readLines(old_index_index)
+    close(old_index_index)
     
     # Parse contents, lookup for specific line displaying the knitr::kable command
-    old_labels_idx <- grep("knitr::kable", old_house_index_contents) + 1
-    old_labels <- trimws(unlist(strsplit(old_house_index_contents[old_labels_idx], ",")))
+    old_labels_idx <- grep("knitr::kable", old_index_index_contents) + 1
+    old_labels <- trimws(unlist(strsplit(old_index_index_contents[old_labels_idx], ",")))
     old_labels <- gsub("\'", "", old_labels)
     old_labels <- old_labels[old_labels != ""]
     
@@ -142,7 +149,7 @@ create_house_index <- function(house_id,
       dir.create(backup_dir, recursive = TRUE)
     
     # Rename old file
-    file.rename(new_house_Rmd_name, paste0(backup_dir , "/", clean(house_id), ".", format))
+    file.rename(new_index_Rmd_name, paste0(backup_dir , "/", clean(parent_id), ".", format))
   }
   
   # Combine new labels with old ones and keep unique only
@@ -153,7 +160,7 @@ create_house_index <- function(house_id,
     labels <- c(labels, "")
   
   # Create reference to file
-  new_house_Rmd <- file(new_house_Rmd_name)
+  new_index_Rmd <- file(new_index_Rmd_name)
   
   # Create file
   writeLines(
@@ -161,11 +168,11 @@ create_house_index <- function(house_id,
       paste0("author: ", author),
       "tags:",
       "  - index",
-      paste0("title: ", clean(house_id, to = "", FUN = toupper)),
+      paste0("title: ", title),
       "aliases:",
-      paste0("  - ", label_path, tolower(house_id)),
-      paste0("  - ", label_path, clean(house_id)),
-      paste0("  - ", label_path, clean(house_id, to = "")),
+      paste0("  - ", label_path, tolower(parent_id)),
+      paste0("  - ", label_path, clean(parent_id)),
+      paste0("  - ", label_path, clean(parent_id, to = "")),
       "---",
       "",
       "```{css, echo = FALSE}",
@@ -184,11 +191,11 @@ create_house_index <- function(house_id,
       paste0("), ncol = ", cols, ", byrow = TRUE), 'html', booktabs = TRUE, table.attr='class=\"id_links\"')"),
       "```"
     ),
-    new_house_Rmd_name
+    new_index_Rmd
   )
   
   # Close file
-  close(new_house_Rmd)
+  close(new_index_Rmd)
 }
 
 
@@ -243,7 +250,7 @@ generate_genotypes <- function(inputFile,
       new_Rmd <- file(new_Rmd_name) # Create reference to file
       writeLines(
         c("---",
-          paste0("title: ", data[i,1], " ", data[i, 2]),
+          paste0("title: ", gsub("x", "`\\\\times`", data[i,1], TRUE), " ", data[i, 2]),
           paste0("author: ", author),
           paste0("slug: '", clean(data[i, 1]), "/", clean(data[i, 2]),"'"),
           "categories:",
@@ -256,7 +263,7 @@ generate_genotypes <- function(inputFile,
           paste0("  - ", label_path, clean(data[i, 1], to = ""), "-", clean(data[i, 2], to = "")),
           "---",
           "",
-          paste0("# **Parents**: ", gsub("x", " $\\\\times$ ", data[i, 1])),
+          paste0("# **Parents**: ", gsub("x", "`$\\\\times$`", data[i, 1], TRUE)),
           paste0("# **ID**: ", data[i, 2]),
           paste0("# **Updates**: "),
           paste0(" - ", Sys.Date(),": Nothing new.")
@@ -268,13 +275,13 @@ generate_genotypes <- function(inputFile,
       print(paste0("FILE: ", new_Rmd_name, " already exists."))
   }
   
-  # Generate Greenhouse indices
+  # Generate Parents indices
   for (i in unique(data[,1])) {
     idx <- data[,1] == i # Extract indices for current House ID
     if (length(idx) < 1) # Verify there are records linked to the House ID
       next
     labels <- data$Label[idx]
-    create_house_index(i, labels, cols, location, format, author, label_path)
+    create_index(i, labels, cols, location, format, author, label_path, gsub("x", "`\\\\times`", i, TRUE))
     print(paste0("Index for ", i, " created."))
   }
 }
