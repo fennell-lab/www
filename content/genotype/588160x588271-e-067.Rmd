@@ -1,5 +1,5 @@
 ---
-title: 588160x588271 E_067
+title: 588160`\times`588271 E_067
 author: Roberto Villegas-Diaz
 slug: '588160x588271/e-067'
 categories:
@@ -12,7 +12,7 @@ aliases:
   - 588160x588271-e067
 ---
 
-# **Parents**: 588160 $\times$ 588271
+# **Parents**: 588160`$\times$`588271
 # **ID**: E_067
 # **Updates**: 
  - 2020-06-25: Nothing new.

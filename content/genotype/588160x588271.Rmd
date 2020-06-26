@@ -2,7 +2,7 @@
 author: Roberto Villegas-Diaz
 tags:
   - index
-title: 588160X588271
+title: 588160`\times`588271
 aliases:
   - 588160x588271
   - 588160x588271
