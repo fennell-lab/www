@@ -412,3 +412,38 @@ video.video {
   width: 100%;
   height: 100%;
 }
+
+/* Style the list */
+ol.breadcrumb {
+  /* padding: 10px 16px; */
+  list-style: none;
+  color: #777;
+}
+
+/* Display list items side by side */
+ol.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ol.breadcrumb li+li:before {
+  padding: 8px;
+  color: #AAA;
+  content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ol.breadcrumb li a {
+  color: #AAA;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ol.breadcrumb li a:hover {
+  color: #CA486d;
+  transition-duration: 0.1s;
+  border-bottom: 1px dotted #CA486d;
+}
