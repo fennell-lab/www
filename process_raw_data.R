@@ -26,6 +26,7 @@ clean <- function(str, from = "_", to = "-", FUN = tolower) {
 #' @param format file format [default: "Rmd"]
 #' @param author index's author [default: "Roberto Villegas-Diaz"]
 #' @param label_path path to reference aliases [default: ""]
+#' @param extra_crumbs_url url for the extra crumbs [default: "/label/]
 #'
 #' @export
 #'
@@ -36,7 +37,8 @@ generate_labels <- function(inputFile,
                             location = "content/label/", 
                             format = "Rmd", 
                             author = "Roberto Villegas-Diaz", 
-                            label_path = ""){
+                            label_path = "",
+                            extra_crumbs_url = "/label/"){
   data <- read.csv(inputFile) # Read raw data in CSV format, [House][PlantID]
   data <- data[data[, 1] != "", ] # Drop any records with [House] missing
   
@@ -60,17 +62,21 @@ generate_labels <- function(inputFile,
       new_Rmd <- file(new_Rmd_name) # Create reference to file
       writeLines(
         c("---",
-          paste0("title: ", data[i,1], " ", data[i, 2]),
+          # paste0("title: ", data[i,1], " ", data[i, 2]),
+          paste0("title: ", data[i, 2]),
           paste0("author: ", author),
           paste0("slug: '", clean(data[i, 1]), "/", clean(data[i, 2]),"'"),
-          "categories:",
-          paste0("  - ", clean(data[i, 1], to = "", FUN = toupper)),
-          "tags:",
-          paste0("  - ", clean(data[i, 2], "_\\d*", "", toupper)),
+          # "categories:",
+          # paste0("  - ", clean(data[i, 1], to = "", FUN = toupper)),
+          # "tags:",
+          # paste0("  - ", clean(data[i, 2], "_\\d*", "", toupper)),
           "aliases:",
           paste0("  - ", label_path, tolower(data[i, 1]), "-", tolower(data[i, 2])),
           paste0("  - ", label_path, clean(data[i, 1]), "-", clean(data[i, 2])),
           paste0("  - ", label_path, clean(data[i, 1], to = ""), "-", clean(data[i, 2], to = "")),
+          "extra_crumbs:",
+          paste0("  name: ", clean(data[i, 1], to = "", FUN = toupper)),
+          paste0("  path: ", extra_crumbs_url, clean(data[i, 1])),
           "---",
           "",
           paste0("# **House**: ", data[i, 1]),
@@ -126,12 +132,13 @@ create_index <- function(parent_id,
   }
   
   # Create new house index name
-  new_index_Rmd_name <- paste0(location, "/", clean(parent_id), "/index.", format)
+  # new_index_Rmd_name <- paste0(location, "/", clean(parent_id), "/index.", format)
+  new_index_Rmd_name <- paste0(location, "/", clean(parent_id), ".", format)
   
   # Create directory for index
-  if(!dir.exists(paste0(location, "/", clean(parent_id)))){
-    dir.create(paste0(location, "/", clean(parent_id)), recursive = TRUE)
-  }
+  # if(!dir.exists(paste0(location, "/", clean(parent_id)))){
+  #   dir.create(paste0(location, "/", clean(parent_id)), recursive = TRUE)
+  # }
   
   # Create empty old labels
   old_labels <- ""
