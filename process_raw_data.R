@@ -219,6 +219,7 @@ csv2dbf <- function(filename) {
 #' @param format file format [default: "Rmd"]
 #' @param author index's author [default: "Roberto Villegas-Diaz"]
 #' @param label_path path to reference aliases [default: ""]
+#' @param extra_crumbs_url url for the extra crumbs [default: "/genotype/]
 #'
 #' @export
 #'
@@ -229,7 +230,8 @@ generate_genotypes <- function(inputFile,
                             location = "content/genotype/", 
                             format = "Rmd", 
                             author = "Roberto Villegas-Diaz", 
-                            label_path = ""){
+                            label_path = "",
+                            extra_crumbs_url = "/genotype/") {
   data <- read.csv(inputFile) # Read raw data in CSV format, [Parents][ID]
   data <- data[data[, 1] != "", ] # Drop any records with [Parents] missing
   data <- apply(data, 2, gsub, pattern = " ",  replacement = "") # Remove blanks
@@ -240,8 +242,9 @@ generate_genotypes <- function(inputFile,
     data$Label[i] <- paste0("[", data[i, 2], "](", label_path, clean(data[i, 2]), ")")
     
     # Create new label filename
-    new_Rmd_path <- paste0(location, clean(data[i, 1]), "/", clean(data[i, 2]))
-    new_Rmd_name <- paste0(new_Rmd_path, "/index.", format)
+    # new_Rmd_path <- paste0(location, clean(data[i, 1]))
+    new_Rmd_path <- paste0(location)
+    new_Rmd_name <- paste0(new_Rmd_path, clean(data[i, 1]), "-", clean(data[i, 2]), ".", format)
     
     # Create directory for parents
     if(!dir.exists(new_Rmd_path)) {
@@ -264,17 +267,20 @@ generate_genotypes <- function(inputFile,
           # paste0("title: ", gsub("x", "`\\\\times`", data[i,1], TRUE), " ", data[i, 2]),
           paste0("title: ", data[i, 2]),
           paste0("author: ", author),
-          paste0("slug: '", clean(data[i, 2]), "'"),
-          "categories:",
-          paste0("  - ", clean(data[i, 1], to = "", FUN = toupper)),
-          "tags:",
-          paste0("  - ", clean(data[i, 2], "_\\d*", "", toupper)),
+          paste0("slug: '", clean(data[i, 1]), "/", clean(data[i, 2]), "'"),
+          #"categories:",
+          #paste0("  - ", clean(data[i, 1], to = "", FUN = toupper)),
+          #"tags:",
+          #paste0("  - ", clean(data[i, 2], "_\\d*", "", toupper)),
           "aliases:",
-          # paste0("  - ", label_path, tolower(data[i, 1]), "/", clean(data[i, 2])),
-          # paste0("  - ", label_path, tolower(data[i, 1]), "/", clean(data[i, 2], to = "")),
+          # paste0("  - ", "genotype/", tolower(data[i, 1]), "/", clean(data[i, 2])),
+          # paste0("  - ", "genotype/", tolower(data[i, 1]), "/", clean(data[i, 2], to = "")),
           paste0("  - ", label_path, tolower(data[i, 1]), "-", tolower(data[i, 2])),
           paste0("  - ", label_path, clean(data[i, 1]), "-", clean(data[i, 2])),
           paste0("  - ", label_path, clean(data[i, 1], to = ""), "-", clean(data[i, 2], to = "")),
+          "extra_crumbs:",
+          paste0("  name: ", gsub("x", "`\\\\times`", data[i, 1], TRUE)),
+          paste0("  path: ", extra_crumbs_url, clean(data[i, 1])),
           "---",
           "",
           paste0("# **Parents**: ", gsub("x", "`$\\\\times$`", data[i, 1], TRUE)),
