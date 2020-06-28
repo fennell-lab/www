@@ -240,11 +240,12 @@ generate_genotypes <- function(inputFile,
     data$Label[i] <- paste0("[", data[i, 2], "](", label_path, clean(data[i, 2]), ")")
     
     # Create new label filename
-    new_Rmd_name <- paste0(location, clean(data[i, 1]), "/", clean(data[i, 2]), ".", format)
+    new_Rmd_path <- paste0(location, clean(data[i, 1]), "/", clean(data[i, 2]))
+    new_Rmd_name <- paste0(new_Rmd_path, "/index.", format)
     
     # Create directory for parents
-    if(!dir.exists(paste0(location, clean(data[i, 1])))){
-      dir.create(paste0(location, clean(data[i, 1])), recursive = TRUE)
+    if(!dir.exists(new_Rmd_path)) {
+      dir.create(new_Rmd_path, recursive = TRUE)
     }
     
     # Verify if file already exists, if so, then rename it by appending timestamp
@@ -260,7 +261,8 @@ generate_genotypes <- function(inputFile,
       new_Rmd <- file(new_Rmd_name) # Create reference to file
       writeLines(
         c("---",
-          paste0("title: ", gsub("x", "`\\\\times`", data[i,1], TRUE), " ", data[i, 2]),
+          # paste0("title: ", gsub("x", "`\\\\times`", data[i,1], TRUE), " ", data[i, 2]),
+          paste0("title: ", data[i, 2]),
           paste0("author: ", author),
           paste0("slug: '", clean(data[i, 2]), "'"),
           "categories:",
@@ -268,6 +270,8 @@ generate_genotypes <- function(inputFile,
           "tags:",
           paste0("  - ", clean(data[i, 2], "_\\d*", "", toupper)),
           "aliases:",
+          # paste0("  - ", label_path, tolower(data[i, 1]), "/", clean(data[i, 2])),
+          # paste0("  - ", label_path, tolower(data[i, 1]), "/", clean(data[i, 2], to = "")),
           paste0("  - ", label_path, tolower(data[i, 1]), "-", tolower(data[i, 2])),
           paste0("  - ", label_path, clean(data[i, 1]), "-", clean(data[i, 2])),
           paste0("  - ", label_path, clean(data[i, 1], to = ""), "-", clean(data[i, 2], to = "")),
