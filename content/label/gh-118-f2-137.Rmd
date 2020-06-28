@@ -1,18 +1,17 @@
 ---
-title: GH_118 F2_137
+title: F2_137
 author: Roberto Villegas-Diaz
 slug: 'gh-118/f2-137'
-categories:
-  - GH118
-tags:
-  - F2
 aliases:
   - gh_118-f2_137
   - gh-118-f2-137
   - gh118-f2137
+extra_crumbs:
+  name: GH118
+  path: /label/gh-118
 ---
 
 # **House**: GH_118
 # **Plant ID**: F2_137
 # **Updates**: 
-2020-06-15: Nothing new.
+ - 2020-06-28: Nothing new.

@@ -1,18 +1,17 @@
 ---
-title: GH_118 F2_020
+title: F2_020
 author: Roberto Villegas-Diaz
 slug: 'gh-118/f2-020'
-categories:
-  - GH118
-tags:
-  - F2
 aliases:
   - gh_118-f2_020
   - gh-118-f2-020
   - gh118-f2020
+extra_crumbs:
+  name: GH118
+  path: /label/gh-118
 ---
 
 # **House**: GH_118
 # **Plant ID**: F2_020
 # **Updates**: 
-2020-06-15: Nothing new.
+ - 2020-06-28: Nothing new.

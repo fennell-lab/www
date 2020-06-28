@@ -2,17 +2,16 @@
 title: GH_119 F2_251
 author: Roberto Villegas-Diaz
 slug: 'gh-119/f2-251'
-categories:
-  - GH119
-tags:
-  - F2
 aliases:
   - gh_119-f2_251
   - gh-119-f2-251
   - gh119-f2251
+extra_crumbs:
+  name: GH119
+  path: /label/gh-119
 ---
 
 # **House**: GH_119
 # **Plant ID**: F2_251
 # **Updates**: 
- - 2020-06-17: Nothing new.
+ - 2020-06-28: Nothing new.
