@@ -1,5 +1,5 @@
 ---
-title: GH_119 F2_401
+title: F2_401
 author: Roberto Villegas-Diaz
 slug: 'gh-119/f2-401'
 aliases:

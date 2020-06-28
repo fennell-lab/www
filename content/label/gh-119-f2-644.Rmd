@@ -1,5 +1,5 @@
 ---
-title: GH_119 F2_644
+title: F2_644
 author: Roberto Villegas-Diaz
 slug: 'gh-119/f2-644'
 aliases:

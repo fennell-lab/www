@@ -1,5 +1,5 @@
 ---
-title: GH_121 F2_713
+title: F2_713
 author: Roberto Villegas-Diaz
 slug: 'gh-121/f2-713'
 aliases:

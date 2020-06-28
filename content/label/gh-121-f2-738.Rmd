@@ -1,5 +1,5 @@
 ---
-title: GH_121 F2_738
+title: F2_738
 author: Roberto Villegas-Diaz
 slug: 'gh-121/f2-738'
 aliases:

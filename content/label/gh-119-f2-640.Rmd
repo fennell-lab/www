@@ -1,5 +1,5 @@
 ---
-title: GH_119 F2_640
+title: F2_640
 author: Roberto Villegas-Diaz
 slug: 'gh-119/f2-640'
 aliases:

@@ -1,5 +1,5 @@
 ---
-title: GH_121 F2_786
+title: F2_786
 author: Roberto Villegas-Diaz
 slug: 'gh-121/f2-786'
 aliases:
