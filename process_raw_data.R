@@ -126,7 +126,12 @@ create_index <- function(parent_id,
   }
   
   # Create new house index name
-  new_index_Rmd_name <- paste0(location, clean(parent_id), ".", format)
+  new_index_Rmd_name <- paste0(location, "/", clean(parent_id), "/index.", format)
+  
+  # Create directory for index
+  if(!dir.exists(paste0(location, "/", clean(parent_id)))){
+    dir.create(paste0(location, "/", clean(parent_id)), recursive = TRUE)
+  }
   
   # Create empty old labels
   old_labels <- ""
@@ -235,7 +240,12 @@ generate_genotypes <- function(inputFile,
     data$Label[i] <- paste0("[", data[i, 2], "](", label_path, clean(data[i, 2]), ")")
     
     # Create new label filename
-    new_Rmd_name <- paste0(location, clean(data[i, 1]), "-", clean(data[i, 2]), ".", format)
+    new_Rmd_name <- paste0(location, clean(data[i, 1]), "/", clean(data[i, 2]), ".", format)
+    
+    # Create directory for parents
+    if(!dir.exists(paste0(location, clean(data[i, 1])))){
+      dir.create(paste0(location, clean(data[i, 1])), recursive = TRUE)
+    }
     
     # Verify if file already exists, if so, then rename it by appending timestamp
     if (file.exists(new_Rmd_name) && overwrite ) { # Store old files
@@ -252,7 +262,7 @@ generate_genotypes <- function(inputFile,
         c("---",
           paste0("title: ", gsub("x", "`\\\\times`", data[i,1], TRUE), " ", data[i, 2]),
           paste0("author: ", author),
-          paste0("slug: '", clean(data[i, 1]), "/", clean(data[i, 2]),"'"),
+          paste0("slug: '", clean(data[i, 2]), "'"),
           "categories:",
           paste0("  - ", clean(data[i, 1], to = "", FUN = toupper)),
           "tags:",
