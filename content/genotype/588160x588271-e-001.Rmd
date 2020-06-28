@@ -1,6 +1,7 @@
 ---
 title: E_001
 author: Roberto Villegas-Diaz
+slug: '588160x588271/e-001'
 categories:
   - 588160X588271
 tags:
