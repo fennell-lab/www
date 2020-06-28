@@ -1,23 +1,4 @@
-{{if not .IsHome }}
-  <ol class="breadcrumb">
-    {{ template "breadcrumb" dict "currentPage" .Page "id" .UniqueID }}
-  </ol>
-{{ end }}
-
-<!-- templates -->
-{{ define "breadcrumb" }}
-  {{ if .currentPage.Parent }}
-    {{ template "breadcrumb" dict "currentPage" .currentPage.Parent }}
-  {{ end }}
-  <li>
-    {{ if eq .id .currentPage.UniqueID }}
-      {{ .currentPage.Title }}
-    {{ else }}
-      <a href="{{ .currentPage.URL }}">{{ .currentPage.Title }}</a>
-    {{ end }}
-  </li>
-{{ end }}
-
+{{ partial "breadcrumbs.html" . }}
 <div class="split-bio">
   {{ .Content }}
 </div>

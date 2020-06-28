@@ -1,0 +1,23 @@
+{{if not .IsHome }}
+  <ol class="breadcrumb">
+    {{ template "breadcrumb" dict "currentPage" .Page "id" .UniqueID }}
+  </ol>
+{{ end }}
+
+<!-- templates -->
+{{ define "breadcrumb" }}
+  {{ if .currentPage.Parent }}
+    {{ template "breadcrumb" dict "currentPage" .currentPage.Parent }}
+  {{ end }}
+    {{ if eq .id .currentPage.UniqueID }}
+      {{ with .currentPage.Params.extra_crumbs }}
+        <li><a href="{{ .path }}">{{ .name }}</a></li>
+      {{ end }}
+      <!-- {{ if .currentPage.Params.extra_crumbs }}
+        <li><a href="{{ .currentPage.Params.extra_crumbs.url }}">{{ .currentPage.Params.extra_crumbs.name }}</a></li>
+      {{ end }} -->
+      <li>{{ .currentPage.Title }}</li>
+    {{ else }}
+      <li><a href="{{ .currentPage.URL }}">{{ .currentPage.Title }}</a></li>
+    {{ end }}
+{{ end }}
