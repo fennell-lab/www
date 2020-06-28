@@ -1,0 +1,17 @@
+---
+title: E_384
+author: Roberto Villegas-Diaz
+slug: '588160x588271/e-384'
+aliases:
+  - 588160x588271-e_384
+  - 588160x588271-e-384
+  - 588160x588271-e384
+extra_crumbs:
+  name: 588160`\times`588271
+  path: /genotype/588160x588271
+---
+
+# **Parents**: 588160`$\times$`588271
+# **ID**: E_384
+# **Updates**: 
+ - 2020-06-28: Nothing new.

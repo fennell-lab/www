@@ -1,0 +1,17 @@
+---
+title: E_029
+author: Roberto Villegas-Diaz
+slug: '588160x588271/e-029'
+aliases:
+  - 588160x588271-e_029
+  - 588160x588271-e-029
+  - 588160x588271-e029
+extra_crumbs:
+  name: 588160`\times`588271
+  path: /genotype/588160x588271
+---
+
+# **Parents**: 588160`$\times$`588271
+# **ID**: E_029
+# **Updates**: 
+ - 2020-06-28: Nothing new.

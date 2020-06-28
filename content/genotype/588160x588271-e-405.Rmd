@@ -1,0 +1,17 @@
+---
+title: E_405
+author: Roberto Villegas-Diaz
+slug: '588160x588271/e-405'
+aliases:
+  - 588160x588271-e_405
+  - 588160x588271-e-405
+  - 588160x588271-e405
+extra_crumbs:
+  name: 588160`\times`588271
+  path: /genotype/588160x588271
+---
+
+# **Parents**: 588160`$\times$`588271
+# **ID**: E_405
+# **Updates**: 
+ - 2020-06-28: Nothing new.

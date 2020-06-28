@@ -1,0 +1,17 @@
+---
+title: E_313
+author: Roberto Villegas-Diaz
+slug: '588160x588271/e-313'
+aliases:
+  - 588160x588271-e_313
+  - 588160x588271-e-313
+  - 588160x588271-e313
+extra_crumbs:
+  name: 588160`\times`588271
+  path: /genotype/588160x588271
+---
+
+# **Parents**: 588160`$\times$`588271
+# **ID**: E_313
+# **Updates**: 
+ - 2020-06-28: Nothing new.

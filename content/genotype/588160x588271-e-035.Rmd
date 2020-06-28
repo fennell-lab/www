@@ -1,0 +1,17 @@
+---
+title: E_035
+author: Roberto Villegas-Diaz
+slug: '588160x588271/e-035'
+aliases:
+  - 588160x588271-e_035
+  - 588160x588271-e-035
+  - 588160x588271-e035
+extra_crumbs:
+  name: 588160`\times`588271
+  path: /genotype/588160x588271
+---
+
+# **Parents**: 588160`$\times$`588271
+# **ID**: E_035
+# **Updates**: 
+ - 2020-06-28: Nothing new.

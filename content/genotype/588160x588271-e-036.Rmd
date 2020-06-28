@@ -1,0 +1,17 @@
+---
+title: E_036
+author: Roberto Villegas-Diaz
+slug: '588160x588271/e-036'
+aliases:
+  - 588160x588271-e_036
+  - 588160x588271-e-036
+  - 588160x588271-e036
+extra_crumbs:
+  name: 588160`\times`588271
+  path: /genotype/588160x588271
+---
+
+# **Parents**: 588160`$\times$`588271
+# **ID**: E_036
+# **Updates**: 
+ - 2020-06-28: Nothing new.

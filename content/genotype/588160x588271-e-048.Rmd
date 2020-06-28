@@ -1,0 +1,17 @@
+---
+title: E_048
+author: Roberto Villegas-Diaz
+slug: '588160x588271/e-048'
+aliases:
+  - 588160x588271-e_048
+  - 588160x588271-e-048
+  - 588160x588271-e048
+extra_crumbs:
+  name: 588160`\times`588271
+  path: /genotype/588160x588271
+---
+
+# **Parents**: 588160`$\times$`588271
+# **ID**: E_048
+# **Updates**: 
+ - 2020-06-28: Nothing new.
