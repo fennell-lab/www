@@ -1,7 +1,6 @@
 ---
 title: E_339
 author: Roberto Villegas-Diaz
-slug: 'e-339'
 categories:
   - 588160X588271
 tags:

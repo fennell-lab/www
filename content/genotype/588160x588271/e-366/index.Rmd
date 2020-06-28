@@ -1,7 +1,6 @@
 ---
 title: E_366
 author: Roberto Villegas-Diaz
-slug: 'e-366'
 categories:
   - 588160X588271
 tags:

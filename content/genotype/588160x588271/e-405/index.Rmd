@@ -1,7 +1,6 @@
 ---
 title: E_405
 author: Roberto Villegas-Diaz
-slug: 'e-405'
 categories:
   - 588160X588271
 tags:

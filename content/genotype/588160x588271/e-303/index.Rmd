@@ -1,7 +1,6 @@
 ---
 title: E_303
 author: Roberto Villegas-Diaz
-slug: 'e-303'
 categories:
   - 588160X588271
 tags:

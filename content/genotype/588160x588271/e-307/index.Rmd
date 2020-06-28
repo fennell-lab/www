@@ -1,7 +1,6 @@
 ---
 title: E_307
 author: Roberto Villegas-Diaz
-slug: 'e-307'
 categories:
   - 588160X588271
 tags:

@@ -1,7 +1,6 @@
 ---
 title: E_050
 author: Roberto Villegas-Diaz
-slug: 'e-050'
 categories:
   - 588160X588271
 tags:

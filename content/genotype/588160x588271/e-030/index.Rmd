@@ -1,7 +1,6 @@
 ---
 title: E_030
 author: Roberto Villegas-Diaz
-slug: 'e-030'
 categories:
   - 588160X588271
 tags:

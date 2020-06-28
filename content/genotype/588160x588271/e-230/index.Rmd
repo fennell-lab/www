@@ -1,7 +1,6 @@
 ---
 title: E_230
 author: Roberto Villegas-Diaz
-slug: 'e-230'
 categories:
   - 588160X588271
 tags:

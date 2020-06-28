@@ -1,7 +1,6 @@
 ---
 title: E_035
 author: Roberto Villegas-Diaz
-slug: 'e-035'
 categories:
   - 588160X588271
 tags:

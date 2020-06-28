@@ -1,7 +1,6 @@
 ---
 title: E_032
 author: Roberto Villegas-Diaz
-slug: 'e-032'
 categories:
   - 588160X588271
 tags:

@@ -1,7 +1,6 @@
 ---
 title: E_068
 author: Roberto Villegas-Diaz
-slug: 'e-068'
 categories:
   - 588160X588271
 tags:

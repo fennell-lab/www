@@ -1,7 +1,6 @@
 ---
 title: E_226
 author: Roberto Villegas-Diaz
-slug: 'e-226'
 categories:
   - 588160X588271
 tags:

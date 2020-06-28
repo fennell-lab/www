@@ -1,7 +1,6 @@
 ---
 title: E_346
 author: Roberto Villegas-Diaz
-slug: 'e-346'
 categories:
   - 588160X588271
 tags:
