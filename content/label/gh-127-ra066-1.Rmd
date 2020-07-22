@@ -1,0 +1,17 @@
+---
+title: RA066_1
+author: Roberto Villegas-Diaz
+slug: 'gh-127/ra066-1'
+aliases:
+  - gh_127-ra066_1
+  - gh-127-ra066-1
+  - gh127-ra0661
+extra_crumbs:
+  name: GH127
+  path: /label/gh-127
+---
+
+# **House**: GH_127
+# **Plant ID**: RA066_1
+# **Updates**: 
+ - 2020-07-21: Nothing new.

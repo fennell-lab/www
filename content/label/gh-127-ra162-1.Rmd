@@ -1,0 +1,17 @@
+---
+title: RA162_1
+author: Roberto Villegas-Diaz
+slug: 'gh-127/ra162-1'
+aliases:
+  - gh_127-ra162_1
+  - gh-127-ra162-1
+  - gh127-ra1621
+extra_crumbs:
+  name: GH127
+  path: /label/gh-127
+---
+
+# **House**: GH_127
+# **Plant ID**: RA162_1
+# **Updates**: 
+ - 2020-07-21: Nothing new.

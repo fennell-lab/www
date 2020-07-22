@@ -1,0 +1,17 @@
+---
+title: RA001_1
+author: Roberto Villegas-Diaz
+slug: 'gh-127/ra001-1'
+aliases:
+  - gh_127-ra001_1
+  - gh-127-ra001-1
+  - gh127-ra0011
+extra_crumbs:
+  name: GH127
+  path: /label/gh-127
+---
+
+# **House**: GH_127
+# **Plant ID**: RA001_1
+# **Updates**: 
+ - 2020-07-21: Nothing new.
